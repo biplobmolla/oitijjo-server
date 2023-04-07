@@ -19,3 +19,13 @@ export const getProducts = async (req, res) => {
     console.log({ message: err.message });
   }
 };
+
+export const getProduct = async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const product = await productModel.findById(req.params.id);
+    res.status(200).send(product);
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};

@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import productRouter from "./routes/productsRoutes.js";
+import cors from "cors";
 
 const app = express();
 
@@ -10,6 +11,7 @@ mongoose
   .catch((err) => console.log({ message: err.message }));
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/products", productRouter);
 
